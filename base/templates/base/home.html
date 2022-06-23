@@ -1,0 +1,13 @@
+<!--Loading static files and stylesheet-->
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'base/style.css' %}">
+<!--Reminder to move all functionality on login to the navbar when created-->
+{% if request.user.is_authenticated %}
+    <p>{{request.user}}</p>
+    <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+    <a href="{% url 'login' %}">Login</a>
+{% endif %}
+<hr>
+<!--Create Homepage-->
+<h1>Welcome home <!--Place user name here--></h1>
